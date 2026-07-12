@@ -1,0 +1,13 @@
+{
+  "name": "assetflow-erp",
+  "version": "1.0.0",
+  "description": "AssetFlow - Enterprise Asset & Resource ERP Management System",
+  "main": "index.html",
+  "scripts": {
+    "dev": "serve -s . -l 5173",
+    "start": "serve -s ."
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  }
+}

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OmniSync | Enterprise Asset & Resource Management</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="src/styles/variables.css">
+  <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body class="dark-theme">
+  
+  <!-- Top Progress Bar (Simulated navigation/load progress) -->
+  <div id="topProgressBar" class="progress-bar-container">
+    <div class="progress-bar-fill"></div>
+  </div>
+
+  <!-- Global Toast Notifications Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Main Application Wrapper -->
+  <div id="appContainer" class="app-layout hidden">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-logo" style="background: none; box-shadow: none; border: none; width: auto; height: auto;">
+          <svg width="28" height="28" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 0 6px var(--primary-glow));">
+            <defs>
+              <linearGradient id="logo-grad-sidebar" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="var(--primary)" />
+                <stop offset="100%" stop-color="var(--secondary)" />
+              </linearGradient>
+            </defs>
+            <path d="M20,3 L35,11.5 L35,28.5 L20,37 L5,28.5 L5,11.5 Z" stroke="url(#logo-grad-sidebar)" stroke-width="3.5" stroke-linejoin="round" fill="rgba(255,255,255,0.01)" />
+            <circle cx="20" cy="20" r="5.5" fill="url(#logo-grad-sidebar)" />
+            <path d="M20,10 A10,10 0 0,1 30,20" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
+            <path d="M20,30 A10,10 0 0,1 10,20" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Omni<span class="accent-text">Sync</span></span>
+          <span class="brand-tagline">Enterprise ERP Suite</span>
+        </div>
+        <button id="sidebarToggleClose" class="sidebar-mobile-close-btn">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <ul class="nav-list">
+          <li>
+            <a href="#dashboard" class="nav-link active" data-view="dashboard">
+              <i data-lucide="layout-dashboard"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="#assets" class="nav-link" data-view="assets">
+              <i data-lucide="package"></i>
+              <span>Asset Registry</span>
+            </a>
+          </li>
+          <li>
+            <a href="#allocations" class="nav-link" data-view="allocations">
+              <i data-lucide="repeat"></i>
+              <span>Allocations & Transfers</span>
+            </a>
+          </li>
+          <li>
+            <a href="#bookings" class="nav-link" data-view="bookings">
+              <i data-lucide="calendar"></i>
+              <span>Resource Bookings</span>
+            </a>
+          </li>
+          <li>
+            <a href="#maintenance" class="nav-link" data-view="maintenance">
+              <i data-lucide="wrench"></i>
+              <span>Maintenance Logs</span>
+            </a>
+          </li>
+          <li>
+            <a href="#audits" class="nav-link" data-view="audits">
+              <i data-lucide="clipboard-check"></i>
+              <span>Asset Audits</span>
+            </a>
+          </li>
+          <li>
+            <a href="#reports" class="nav-link" data-view="reports">
+              <i data-lucide="bar-chart-3"></i>
+              <span>Reports & Analytics</span>
+            </a>
+          </li>
+          <li>
+            <a href="#activity" class="nav-link" data-view="activity">
+              <i data-lucide="history"></i>
+              <span>System Activity</span>
+            </a>
+          </li>
+          <li class="admin-only-nav">
+            <div class="nav-divider">Admin Controls</div>
+          </li>
+          <li class="admin-only-nav">
+            <a href="#org-setup" class="nav-link" data-view="org-setup">
+              <i data-lucide="settings"></i>
+              <span>Organization Setup</span>
+            </a>
+          </li>
+          <li>
+            <div class="nav-divider">Evaluation Tools</div>
+          </li>
+          <li>
+            <a href="#" class="nav-link" id="sidebarDevSandboxBtn" style="border: 1px dashed var(--primary-glow); color: var(--primary); margin-top: 4px;">
+              <i data-lucide="terminal"></i>
+              <span>Developer Sandbox</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-profile-summary">
+          <div class="avatar" id="userAvatar">EM</div>
+          <div class="user-details">
+            <div class="user-name" id="profileName">Loading User...</div>
+            <div class="user-role-badge" id="profileRole">Employee</div>
+          </div>
+          <button id="logoutBtn" class="logout-icon-btn" title="Sign Out">
+            <i data-lucide="log-out"></i>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Content Area wrapper -->
+    <main class="content-wrapper">
+      <!-- Top Header Navigation -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button id="sidebarToggleOpen" class="sidebar-mobile-open-btn">
+            <i data-lucide="menu"></i>
+          </button>
+          <h1 id="pageTitle" class="page-title">Dashboard</h1>
+        </div>
+        
+        <div class="topbar-right">
+          <!-- Quick Search -->
+          <div class="topbar-search-box">
+            <i data-lucide="search" class="search-icon"></i>
+            <input type="text" id="globalSearchInput" placeholder="Quick search assets (tag, serial)..." />
+            <div class="search-results-dropdown hidden" id="globalSearchResults"></div>
+          </div>
+
+          <!-- AI Spotlight Command Bar Trigger -->
+          <button id="spotlightToggleBtn" class="topbar-btn" title="AI Command Bar (Ctrl+K)" style="border-color:var(--primary-glow); margin-right: 4px;">
+            <i data-lucide="sparkles" style="color:var(--primary); width: 18px; height: 18px;"></i>
+          </button>
+
+          <!-- Notification Bell -->
+          <div class="notification-bell-container">
+            <button id="notificationToggleBtn" class="topbar-btn">
+              <i data-lucide="bell"></i>
+              <span id="unreadNotificationBadge" class="notification-badge hidden">0</span>
+            </button>
+            <div class="notification-dropdown hidden" id="notificationDropdown">
+              <div class="notification-header">
+                <h3>Notifications</h3>
+                <button id="markAllReadBtn" class="text-btn">Mark all read</button>
+              </div>
+              <div class="notification-list" id="notificationList">
+                <div class="notification-empty">No new notifications</div>
+              </div>
+              <div class="notification-footer">
+                <a href="#activity" class="view-all-link">View all activity logs</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Theme Toggle -->
+          <button id="themeToggleBtn" class="topbar-btn" title="Toggle Theme">
+            <i data-lucide="sun" class="sun-icon"></i>
+            <i data-lucide="moon" class="moon-icon"></i>
+          </button>
+
+          <!-- Divider -->
+          <div class="topbar-divider"></div>
+
+          <!-- Active Workspace Info -->
+          <div class="workspace-badge">
+            <span class="workspace-dot animate-pulse"></span>
+            <span class="workspace-name">HQ Production Workspace</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- View Rendering Target -->
+      <div id="mainViewport" class="main-viewport scrollbar-custom">
+        <!-- Rendered Page Content Goes Here -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Authentication Wrapper (Logged out view) -->
+  <div id="authContainer" class="auth-layout scrollbar-custom">
+    <!-- Login/Signup cards render here -->
+  </div>
+
+  <!-- Developer Evaluation Sandbox Slide-out Drawer Panel -->
+  <div id="devSandboxPanel" class="dev-sandbox-panel">
+    <div class="sandbox-header">
+      <h3><i data-lucide="terminal"></i> Hackathon Sandbox</h3>
+      <button id="devSandboxCloseBtn" class="close-icon-btn"><i data-lucide="x"></i></button>
+    </div>
+    <div class="sandbox-body scrollbar-custom">
+      <div class="sandbox-section">
+        <h4><i data-lucide="users"></i> Quick Role Switcher</h4>
+        <p class="sandbox-note">Instantly switch between roles to test workflows without logging out.</p>
+        <div class="role-grid">
+          <button class="sandbox-role-btn" data-role="Admin">
+            <i data-lucide="shield-check"></i> Admin
+          </button>
+          <button class="sandbox-role-btn" data-role="Asset Manager">
+            <i data-lucide="user-cog"></i> Manager
+          </button>
+          <button class="sandbox-role-btn" data-role="Department Head">
+            <i data-lucide="users-2"></i> Dept Head
+          </button>
+          <button class="sandbox-role-btn" data-role="Employee">
+            <i data-lucide="user"></i> Employee
+          </button>
+        </div>
+      </div>
+      
+      <div class="sandbox-section">
+        <h4><i data-lucide="calendar-clock"></i> Time Warp Controls</h4>
+        <p class="sandbox-note">Simulate time passing to test return date deadlines, bookings, and alerts.</p>
+        <div class="time-warp-controls">
+          <button id="btnWarp7Days" class="sandbox-action-btn">
+            <i data-lucide="skip-forward"></i> Fast Forward 7 Days
+          </button>
+          <button id="btnResetTime" class="sandbox-action-btn secondary">
+            <i data-lucide="refresh-cw"></i> Reset to Current Time
+          </button>
+        </div>
+      </div>
+
+      <div class="sandbox-section">
+        <h4><i data-lucide="check-circle2"></i> Automation & Diagnostic Tests</h4>
+        <p class="sandbox-note">Run integrated self-tests on conflicts, constraints, and allocations.</p>
+        <button id="btnRunDiagnostics" class="sandbox-action-btn accent">
+          <i data-lucide="play-circle"></i> Run System Diagnostics
+        </button>
+        <div id="diagnosticResults" class="diagnostic-logs hidden">
+          <!-- Logs go here -->
+        </div>
+      </div>
+
+      <div class="sandbox-section">
+        <h4><i data-lucide="database-backup"></i> Database Reset</h4>
+        <p class="sandbox-note">Reset local store back to fresh, default seed values.</p>
+        <button id="btnResetDb" class="sandbox-action-btn danger">
+          <i data-lucide="trash-2"></i> Reset Database & Seed Defaults
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Spotlight Search Overlay -->
+  <div id="spotlightOverlay" class="spotlight-modal-overlay hidden">
+    <div class="spotlight-card">
+      <div class="spotlight-header">
+        <i data-lucide="sparkles" class="spotlight-search-icon"></i>
+        <input type="text" id="spotlightInput" class="spotlight-input" placeholder="Type a command (e.g. 'warp 7 days', 'switch admin', 'find xps')..." />
+        <span class="spotlight-kbd-badge">ESC to close</span>
+      </div>
+      <div class="spotlight-body scrollbar-custom" id="spotlightBody">
+        <!-- Results go here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Modal Container -->
+  <div id="modalOverlay" class="modal-overlay hidden">
+    <div class="modal-card scrollbar-custom" id="modalCard">
+      <!-- Modal Contents injected dynamically -->
+    </div>
+  </div>
+
+  <!-- AI Companion Chatbot "Syncie" (Special Interactive Feature) -->
+  <div id="aiCompanion" class="ai-companion-container">
+    <div id="aiCompanionBubble" class="ai-companion-bubble hidden">
+      <div class="ai-bubble-header">
+        <span class="ai-bubble-title">Syncie Assistant</span>
+        <button id="aiBubbleClose" class="close-icon-btn" style="padding:2px;"><i data-lucide="x" style="width:12px;height:12px;"></i></button>
+      </div>
+      <div class="ai-bubble-body" style="padding-top: 4px;">
+        <p id="aiBubbleSpeech" style="margin-bottom: 0; font-size: 0.8rem; line-height: 1.45; color: var(--text-main);"></p>
+      </div>
+    </div>
+    
+    <!-- Animated Floating Robot Avatar -->
+    <div id="aiCompanionAvatar" class="ai-companion-avatar" title="Click to talk, Drag to move!">
+      <svg width="46" height="46" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: drop-shadow(0 0 8px var(--primary-glow));">
+        <defs>
+          <linearGradient id="botGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="var(--bg-panel)" />
+            <stop offset="100%" stop-color="hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.25)" />
+          </linearGradient>
+          <linearGradient id="botEyes" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#00ffff" />
+            <stop offset="100%" stop-color="var(--secondary)" />
+          </linearGradient>
+        </defs>
+        <!-- Antenna -->
+        <line x1="20" y1="9" x2="20" y2="4" stroke="var(--primary)" stroke-width="2.5" stroke-linecap="round" />
+        <circle cx="20" cy="3.5" r="2" fill="var(--secondary)" />
+        <!-- Head -->
+        <rect x="8" y="9" width="24" height="21" rx="6" fill="url(#botGrad)" stroke="var(--primary)" stroke-width="2" />
+        <!-- Glowing eyes -->
+        <circle cx="15" cy="18" r="3" fill="url(#botEyes)" />
+        <circle cx="25" cy="18" r="3" fill="url(#botEyes)" />
+        <!-- Mouth -->
+        <path d="M15,24 Q20,27 25,24" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none" />
+        <!-- Ears -->
+        <rect x="5" y="16" width="3" height="7" rx="1.5" fill="var(--primary)" />
+        <rect x="32" y="16" width="3" height="7" rx="1.5" fill="var(--primary)" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Application Initialization -->
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
