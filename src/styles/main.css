@@ -2284,8 +2284,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .floorplan-room {
   cursor: pointer;
-  fill: rgba(139, 92, 246, 0.02);
-  stroke: hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.35);
+  fill: rgba(255, 255, 255, 0.03);
+  stroke: hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.65);
   stroke-width: 1.8;
   transition: all var(--transition-fast);
 }
