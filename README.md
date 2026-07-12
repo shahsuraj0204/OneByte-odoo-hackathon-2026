@@ -17,15 +17,15 @@ By focusing on a structured asset lifecycle, centralized booking, and real-time 
 
 | Login Portal (Matte & Drifting Backdrop) | Workspace Dashboard Overview |
 |:---:|:---:|
-| `![Login Screen](./screenshots/login.png)` | `![Dashboard Overview](./screenshots/dashboard.png)` |
+| ![Login Screen](./screenshots/login.png) | ![Dashboard Overview](./screenshots/dashboard.png) |
 
 | Interactive Floor Plan Map | Central Booking Grid |
 |:---:|:---:|
-| `![Assets Registry](./screenshots/assets.png)` | `![Resource Bookings](./screenshots/bookings.png)` |
+| ![Assets Registry](./screenshots/assets.png) | ![Resource Bookings](./screenshots/bookings.png) |
 
 | Conduct Checklist & Certificate | Kanban Maintenance Logs |
 |:---:|:---:|
-| `![Audits Certificate](./screenshots/audits.png)` | `![Kanban Maintenance](./screenshots/maintenance.png)` |
+| ![Audits Certificate](./screenshots/audits.png) | ![Kanban Maintenance](./screenshots/maintenance.png) |
 
 ---
 
