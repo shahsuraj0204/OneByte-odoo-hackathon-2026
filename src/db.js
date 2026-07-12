@@ -96,13 +96,13 @@ class LocalDB {
     // 3. Seed Employees
     // Passwords are pre-hashed for simulator simplicity (cleartext check in demo)
     const employees = [
-      { id: 'e-1', name: 'Alice Smith', email: 'admin@omnisync.com', password: 'admin123', departmentId: 'd-4', role: 'Admin', status: 'Active' },
-      { id: 'e-2', name: 'Sarah Connor', email: 'manager@omnisync.com', password: 'manager123', departmentId: 'd-3', role: 'Asset Manager', status: 'Active' },
-      { id: 'e-3', name: 'Priya Patel', email: 'head@omnisync.com', password: 'head123', departmentId: 'd-1', role: 'Department Head', status: 'Active' },
-      { id: 'e-4', name: 'Raj Kumar', email: 'employee@omnisync.com', password: 'employee123', departmentId: 'd-2', role: 'Employee', status: 'Active' },
-      { id: 'e-5', name: 'Alex Chen', email: 'alex@omnisync.com', password: 'employee123', departmentId: 'd-1', role: 'Employee', status: 'Active' },
-      { id: 'e-6', name: 'Maria Santos', email: 'maria@omnisync.com', password: 'employee123', departmentId: 'd-2', role: 'Employee', status: 'Active' },
-      { id: 'e-7', name: 'John Doe', email: 'john@omnisync.com', password: 'employee123', departmentId: 'd-3', role: 'Employee', status: 'Active' }
+      { id: 'e-1', name: 'Alice Smith', email: 'admin@omnisync.com', password: 'omniAdmin@2026', departmentId: 'd-4', role: 'Admin', status: 'Active' },
+      { id: 'e-2', name: 'Sarah Connor', email: 'manager@omnisync.com', password: 'omniManager@2026', departmentId: 'd-3', role: 'Asset Manager', status: 'Active' },
+      { id: 'e-3', name: 'Priya Patel', email: 'head@omnisync.com', password: 'omniHead@2026', departmentId: 'd-1', role: 'Department Head', status: 'Active' },
+      { id: 'e-4', name: 'Raj Kumar', email: 'employee@omnisync.com', password: 'omniEmployee@2026', departmentId: 'd-2', role: 'Employee', status: 'Active' },
+      { id: 'e-5', name: 'Alex Chen', email: 'alex@omnisync.com', password: 'omniEmployee@2026', departmentId: 'd-1', role: 'Employee', status: 'Active' },
+      { id: 'e-6', name: 'Maria Santos', email: 'maria@omnisync.com', password: 'omniEmployee@2026', departmentId: 'd-2', role: 'Employee', status: 'Active' },
+      { id: 'e-7', name: 'John Doe', email: 'john@omnisync.com', password: 'omniEmployee@2026', departmentId: 'd-3', role: 'Employee', status: 'Active' }
     ];
 
     // 4. Seed Assets

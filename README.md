@@ -107,10 +107,10 @@ To test different role themes and interface accesses, use these seeded credentia
 
 | Profile Name | Role | Email | Password | Theme Accent |
 | :--- | :--- | :--- | :--- | :--- |
-| **Alice Smith** | Admin / Owner | `admin@omnisync.com` | `admin123` | **Purple** |
-| **Sarah Connor** | Asset Manager | `manager@omnisync.com` | `manager123` | **Emerald Green** |
-| **John Doe** | Department Head | `head@omnisync.com` | `head123` | **Teal / Cyan** |
-| **Bob Johnson** | Standard Employee | `employee@omnisync.com` | `employee123` | **Electric Blue** |
+| **Alice Smith** | Admin / Owner | `admin@omnisync.com` | `omniAdmin@2026` | **Purple** |
+| **Sarah Connor** | Asset Manager | `manager@omnisync.com` | `omniManager@2026` | **Emerald Green** |
+| **John Doe** | Department Head | `head@omnisync.com` | `omniHead@2026` | **Teal / Cyan** |
+| **Bob Johnson** | Standard Employee | `employee@omnisync.com` | `omniEmployee@2026` | **Electric Blue** |
 
 ---
 

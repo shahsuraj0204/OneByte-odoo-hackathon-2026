@@ -79,22 +79,22 @@ export const LoginView = {
           <div class="auth-helper-accounts" style="margin-top: 20px; border-top: 1px solid var(--border-color); padding-top: 16px;">
             <h5 style="font-size:0.65rem; letter-spacing:0.08em; text-align:left; display:flex; align-items:center; gap:6px;"><i data-lucide="key" style="width:12px;height:12px;color:var(--primary);"></i> PRE-SEEDED EVALUATION ACCOUNTS</h5>
             
-            <button class="helper-account-btn" data-email="admin@omnisync.com" data-pass="admin123">
+            <button class="helper-account-btn" data-email="admin@omnisync.com" data-pass="omniAdmin@2026">
               <span>Admin Role</span>
               <code>admin@omnisync.com</code>
             </button>
             
-            <button class="helper-account-btn" data-email="manager@omnisync.com" data-pass="manager123">
+            <button class="helper-account-btn" data-email="manager@omnisync.com" data-pass="omniManager@2026">
               <span>Asset Manager</span>
               <code>manager@omnisync.com</code>
             </button>
             
-            <button class="helper-account-btn" data-email="head@omnisync.com" data-pass="head123">
+            <button class="helper-account-btn" data-email="head@omnisync.com" data-pass="omniHead@2026">
               <span>Dept Head</span>
               <code>head@omnisync.com</code>
             </button>
             
-            <button class="helper-account-btn" data-email="employee@omnisync.com" data-pass="employee123">
+            <button class="helper-account-btn" data-email="employee@omnisync.com" data-pass="omniEmployee@2026">
               <span>Employee</span>
               <code>employee@omnisync.com</code>
             </button>
