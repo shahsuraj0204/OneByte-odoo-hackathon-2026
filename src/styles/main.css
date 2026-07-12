@@ -2284,36 +2284,38 @@ h1, h2, h3, h4, h5, h6 {
 
 .floorplan-room {
   cursor: pointer;
-  fill: rgba(255, 255, 255, 0.015);
-  stroke: var(--border-color);
-  stroke-width: 1.5;
+  fill: rgba(139, 92, 246, 0.02);
+  stroke: hsla(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.35);
+  stroke-width: 1.8;
   transition: all var(--transition-fast);
 }
 
 .floorplan-room:hover {
-  fill: rgba(139, 92, 246, 0.1);
+  fill: rgba(139, 92, 246, 0.12);
   stroke: var(--primary);
 }
 
 .floorplan-room.active {
   fill: var(--primary-transparent);
   stroke: var(--primary);
-  filter: drop-shadow(0 0 4px var(--primary-glow));
+  filter: drop-shadow(0 0 5px var(--primary-glow));
 }
 
 .floorplan-text {
-  font-size: 9px;
-  font-weight: 600;
-  fill: var(--text-muted);
+  font-size: 10px;
+  font-weight: 700;
+  fill: var(--text-main);
+  opacity: 0.75;
   pointer-events: none;
   font-family: var(--font-display);
   text-anchor: middle;
-  transition: fill var(--transition-fast);
+  transition: fill var(--transition-fast), opacity var(--transition-fast);
 }
 
 .floorplan-room:hover + .floorplan-text,
 .floorplan-room.active + .floorplan-text {
   fill: var(--primary);
+  opacity: 1;
 }
 
 /* Compliance Certificate Print Layout styles */
