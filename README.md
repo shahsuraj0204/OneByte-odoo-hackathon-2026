@@ -1,8 +1,10 @@
 # ⚙️ OmniSync ERP — Enterprise Asset & Resource Management
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Deploy%20on%20GitHub%20Pages-success?style=for-the-badge&logo=github)](https://shahsuraj0204.github.io/OneByte-odoo-hackathon-2026/)
+
 [![Platform](https://img.shields.io/badge/Architecture-SPA%20Router-blueviolet)](https://github.com/)
 [![Tech](https://img.shields.io/badge/Stack-HTML5%20%7C%20CSS3%20%7C%20Vanilla%20JS-blue)](https://github.com/)
-[![Bundler](https://img.shields.io/badge/Bundler-Vite-646CFF?logo=vite)](https://github.com/)
+[![Web Server](https://img.shields.io/badge/Web%20Server-Static%20Server-646CFF?logo=node.js)](https://github.com/)
 [![Storage](https://img.shields.io/badge/Database-LocalStorage%20Sync-yellow)](https://github.com/)
 [![Aesthetic](https://img.shields.io/badge/Aesthetic-Matte%20Obsidian-black)](https://github.com/)
 
