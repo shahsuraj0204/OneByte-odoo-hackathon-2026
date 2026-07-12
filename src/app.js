@@ -232,6 +232,17 @@ class Application {
 
   // --- Initializer Startup ---
   start() {
+    // Automated screenshot session initializer
+    const urlParams = new URLSearchParams(window.location.search);
+    const mockLogin = urlParams.get('mock_login');
+    if (mockLogin && !sessionStorage.getItem('omnisync_user')) {
+      const users = db.get(TABLES.EMPLOYEES);
+      const user = users.find(u => u.role === 'Admin');
+      if (user) {
+        sessionStorage.setItem('omnisync_user', JSON.stringify(user));
+      }
+    }
+
     // Check local session
     const savedUser = sessionStorage.getItem('omnisync_user');
     if (savedUser) {
