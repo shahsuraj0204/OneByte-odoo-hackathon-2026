@@ -15,7 +15,6 @@ By focusing on a structured asset lifecycle, centralized booking, and real-time 
 ---
 
 ## 📸 Project Visual Highlights
-*(Create a `screenshots/` directory in your repository and save your snapshots under these names to display them on GitHub)*
 
 | Login Portal (Matte & Drifting Backdrop) | Workspace Dashboard Overview |
 |:---:|:---:|
